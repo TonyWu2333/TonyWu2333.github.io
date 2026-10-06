@@ -60,7 +60,7 @@
   nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
   .brand { font-family: var(--serif); font-size: 26px; font-style: italic; }
   .brand span { color: var(--accent); }
-  .nav-links { display: flex; gap: 4px; align-items: center; }
+  .nav-links { display: flex; gap: 4px; align-items: center; margin-left: auto; }
   .nav-links a {
     font-family: var(--mono); font-size: 12.5px; color: var(--muted);
     padding: 6px 10px; border-radius: 999px; transition: color .2s, background .2s;
@@ -75,7 +75,7 @@
   .theme-btn svg { width: 16px; height: 16px; }
 
   /* hero */
-  .hero { padding: 96px 0 88px; position: relative; }
+  .hero { padding: 96px 0 88px; position: relative; overflow-x: clip; }
   .hero::after {
     content: ""; position: absolute; right: -10%; top: 0; width: 520px; height: 520px; z-index: -1;
     background: radial-gradient(circle, var(--accent-soft), transparent 65%); filter: blur(20px);
@@ -208,6 +208,10 @@
   /* reveal */
   .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1); }
   .js .reveal.in { opacity: 1; transform: none; }
+  @media (hover: none) {
+    .btn:hover, .card:hover { transform: none; }
+    .oss a:hover { padding-left: 8px; }
+  }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .js .reveal { opacity: 1; transform: none; transition: none; }
@@ -216,7 +220,14 @@
 
   /* responsive */
   @media (max-width: 860px) {
-    .nav-links a { display: none; }
+    html { scroll-padding-top: 116px; }
+    nav .wrap { flex-wrap: wrap; height: auto; padding-top: 12px; }
+    .nav-links {
+      order: 1; flex-basis: calc(100% + 20px); margin: 6px -10px 0; padding-bottom: 8px;
+      overflow-x: auto; scrollbar-width: none;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a { flex-shrink: 0; }
     .about, .skills, .card.feature { grid-template-columns: 1fr; gap: 32px; }
     .grid { grid-template-columns: 1fr; }
     .oss a { grid-template-columns: 1fr auto; gap: 6px 16px; }
@@ -239,6 +250,9 @@
     .tl-date .mono { display: inline; }
     .tl-date .mono + .mono::before { content: " · "; }
     .tl-body { padding-left: 0; }
+    footer { padding: 72px 0 32px; }
+    .foot { margin-top: 56px; }
+    .foot .links-sm a { padding: 8px 0; }
   }
 </style>
 </head>
@@ -253,10 +267,10 @@
       <a href="#projects">Projects</a>
       <a href="#oss">Open Source</a>
       <a href="#skills">Skills</a>
-      <button class="theme-btn" id="theme" aria-label="Toggle colour theme">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-      </button>
     </div>
+    <button class="theme-btn" id="theme" aria-label="Toggle colour theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
   </div>
 </nav>
 
@@ -512,7 +526,13 @@
   // active nav link + nav border
   const links = document.querySelectorAll('.nav-links a');
   const spy = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.hash === '#' + e.target.id));
+    if (!e.isIntersecting) return;
+    links.forEach(a => {
+      const on = a.hash === '#' + e.target.id;
+      a.classList.toggle('active', on);
+      // keep the active link visible in the scrollable mobile nav
+      if (on) a.parentElement.scrollTo({ left: a.offsetLeft - a.parentElement.offsetLeft - 10, behavior: 'smooth' });
+    });
   }), { rootMargin: '-45% 0px -50% 0px' });
   document.querySelectorAll('main section').forEach(s => spy.observe(s));
   const nav = document.getElementById('nav');
