@@ -15,7 +15,7 @@
 <style>
   :root {
     --bg: #f6f3ee; --surface: #fffdf9; --ink: #1a1714; --muted: #6b645c;
-    --line: #e4ddd2; --accent: #c2410c; --accent-soft: #c2410c14; --ok: #16a34a;
+    --line: #e4ddd2; --accent: #c2410c; --accent-soft: #c2410c14;
     --serif: "Instrument Serif", Georgia, serif;
     --sans: Inter, system-ui, -apple-system, sans-serif;
     --mono: "JetBrains Mono", ui-monospace, monospace;
@@ -80,16 +80,8 @@
     content: ""; position: absolute; right: -10%; top: 0; width: 520px; height: 520px; z-index: -1;
     background: radial-gradient(circle, var(--accent-soft), transparent 65%); filter: blur(20px);
   }
-  .status {
-    display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 12px;
-    border: 1px solid var(--line); border-radius: 999px; background: var(--surface);
-  }
-  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); position: relative; }
-  .dot::after {
-    content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 1px solid var(--ok);
-    animation: ping 2s ease-out infinite;
-  }
-  @keyframes ping { from { transform: scale(.6); opacity: 1 } to { transform: scale(1.6); opacity: 0 } }
+  .status { color: var(--muted); text-transform: uppercase; letter-spacing: .14em; }
+  .status b { color: var(--accent); font-weight: 500; margin-right: .6em; }
   h1 {
     font-family: var(--serif); font-weight: 400; line-height: .92; letter-spacing: -.02em;
     font-size: clamp(72px, 14vw, 176px); margin: 36px 0 28px;
@@ -215,7 +207,6 @@
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .js .reveal { opacity: 1; transform: none; transition: none; }
-    .dot::after { animation: none; }
   }
 
   /* responsive */
@@ -237,6 +228,7 @@
   @media (max-width: 640px) {
     .wrap { padding: 0 16px; }
     .hero { padding: 56px 0 64px; }
+    .status { letter-spacing: .08em; }
     section { padding: 64px 0; }
     .info > div { grid-template-columns: 1fr; }
     .info dt { grid-column: 1; }
@@ -276,7 +268,7 @@
 
 <header class="hero" id="top">
   <div class="wrap">
-    <div class="status reveal"><span class="dot"></span><span class="mono">Currently Graduate Student @ NUS</span></div>
+    <div class="status mono reveal"><b>Currently</b> Graduate Student @ NUS</div>
     <h1 class="reveal">Tony <em>Wu</em></h1>
     <div class="cn reveal">Wu Tianzhuo · 吴天卓 · From China, based in Singapore</div>
     <p class="tagline reveal">
