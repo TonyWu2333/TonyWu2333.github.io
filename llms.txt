@@ -1,0 +1,37 @@
+# Tony Wu (Wu Tianzhuo, 吴天卓)
+
+> Personal site of Tony Wu (Wu Tianzhuo, 吴天卓), a product manager and full-stack AI engineer based in Singapore. Software engineer at SendOS; graduate student (Systems Analysis) at the National University of Singapore. Focus: AI products, RAG knowledge platforms and AI agents. Not to be confused with AI researcher Yuhuai (Tony) Wu or Hong Kong actor Tony Wu Tsz-tung.
+
+Key facts:
+- Name: Tony Wu; Chinese name 吴天卓 (pinyin Wu Tianzhuo); from China, based in Singapore
+- Current: Software Engineer, SendOS (Sep 2026 – present), Singapore
+- Education: National University of Singapore, Graduate Diploma in Systems Analysis (2026 – present); Zhejiang University of Technology, B.Eng. Software Engineering (2022 – 2026)
+- Previous: Full-Stack AI Engineer, Saizhi Technology, Hangzhou (Mar – May 2026): agent-based RAG knowledge platform with hybrid BM25 + vector + LLM reranking, 96% answer accuracy
+- Previous: Product Manager, Hangzhou Zhiliaosiyuan (Apr 2024 – Jan 2025): checkout redesign lifted payment conversion ~6%
+- Open source: 40+ merged pull requests, including rea, claude-mem, grpc-gateway, SurfSense and isomorphic-git
+- Award: Second Prize, Zhejiang Provincial Cybersecurity Competition
+- Languages: Mandarin, English
+- Contact: tonywu.vip@outlook.com
+
+## Profile
+
+- [Portfolio](https://me.tonywu.top/): About, experience, projects, open-source contributions, skills
+- [GitHub: TonyWu2333](https://github.com/TonyWu2333): Code and contributions
+- [LinkedIn](https://www.linkedin.com/in/tianzhuo-wu-ab4928416/): Professional profile
+- [Blog (Chinese)](https://www.tonywu.top/): Personal technical blog
+
+## Projects
+
+- [CampusLink](https://github.com/t2047/CampusLink): NUS team project, an AI campus workspace with a human-confirmed chat agent; Tony was product manager and built the mail and calendar module
+- [AI Wellness Mobile App](https://github.com/TonyWu2333/AI-Wellness-Mobile-App): Android wellness assistant backed by a RAG agent over a medical knowledge base; Tony maintains the repo
+
+## Selected open-source contributions
+
+- [rea](https://github.com/morluto/rea/pulls?q=is%3Apr+author%3ATonyWu2333+is%3Amerged): Agent-driven reverse engineering toolkit; 3 merged PRs (.NET image classification, Mach-O platform naming, NIB tests)
+- [claude-mem #4803](https://github.com/thedotmack/claude-mem/pull/4803): Uninstall cleans the active profile's plugin data
+- [grpc-gateway #7484](https://github.com/grpc-ecosystem/grpc-gateway/pull/7484): OpenAPI generator honours `required` on repeated fields
+- [isomorphic-git #2444](https://github.com/isomorphic-git/isomorphic-git/pull/2444): cherry-pick refuses to overwrite local changes
+
+## Optional
+
+- [Bilibili channel](https://space.bilibili.com/355271238): Chinese video channel (~10k followers)
