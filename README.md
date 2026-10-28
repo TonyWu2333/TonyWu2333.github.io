@@ -10,14 +10,16 @@ The site is bilingual: English is the default, and a `中文 / EN` button in the
 
 ## Keep the two copies in sync
 
-This site lives in two repositories with identical files:
+This site lives in two repositories:
 
 - [TonyWu2333/portfolio](https://github.com/TonyWu2333/portfolio) → Vercel, [me.tonywu.top](https://me.tonywu.top)
 - [TonyWu2333/TonyWu2333.github.io](https://github.com/TonyWu2333/TonyWu2333.github.io) → GitHub Pages, [tonywu2333.github.io](https://tonywu2333.github.io)
 
-Every change goes to both. Pull both first, edit one, copy the changed files to the other, and commit and push both.
+The two `index.html` files share the same content but are styled differently on purpose: me.tonywu.top keeps the original editorial design, and this repo uses a comic-book design. The `<head>`, the visible text, the `data-i18n` keys and the Chinese translation table match in both, so a content change is made in both `index.html` files by hand. Never copy one `index.html` over the other.
 
-`vercel.json` (security headers, the `/index.html` redirect) only takes effect on Vercel. GitHub Pages ignores it, but it stays in both repos so the files remain identical. Both copies point their canonical at me.tonywu.top.
+Every other file stays identical. Pull both first, edit one, copy the changed files to the other, and commit and push both.
+
+`vercel.json` (security headers, the `/index.html` redirect) only takes effect on Vercel. GitHub Pages ignores it, but it stays in both repos so the shared files remain identical. Both copies point their canonical at me.tonywu.top.
 
 ## SEO files
 
